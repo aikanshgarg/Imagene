@@ -1,0 +1,118 @@
+body {
+	font-family: 'Finger Paint', cursive;
+	background: #eee;
+	line-height: 1.6em;
+}
+
+.navbar {
+	font-family: 'Bungee', cursive;
+    font-size: 12px;
+    margin-bottom: 5%;
+}
+.navbar-brand {
+	font-weight: bolder;
+	font-size: 20px;
+}
+
+#gallery h3 {
+	border-left: 5px #666 solid;
+	border-bottom: 1px #666 solid;
+	padding: 0 0 5px 5px;
+	color: #343a40;
+	margin-bottom: 30px;
+	font-family: 'Bungee', cursive;
+}
+
+#gallery img {
+	width: 100%;  /*to make width of all image same*/
+}
+
+.col-md-3 {
+	padding: 0;
+}
+
+footer {
+	background-color: #343a40!important;
+	margin-top: 30px;
+	height: 40px;
+	text-align: center;
+	color: white;
+	padding-top: 10px;
+}
+
+.photo {
+	text-align: center;
+	position: relative;
+}
+
+.photo,
+.photo-hover,
+.photo-hover .mask,
+.photo-img,
+.photo-info {
+	width: 285px; /*actual sizes of images*/
+	height: 285px; /*actual sizes of images*/
+}
+
+.photo-img,
+.photo-hover,
+.photo-hover .mask {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.photo-type-line .photo-hover {
+	z-index: 100;
+	-webkit-transition: all 500ms ease-out;
+	-moz-transition: all 500ms ease-out;
+	transition: all 500ms ease-out;
+	opacity: 0;
+	cursor: pointer;
+	display: block;
+	text-decoration: none;
+	text-align: center;
+}
+
+.photo-type-line .photo-info {
+	z-index: 10;
+	color: white;
+	display: table-cell; /*only table cell display makes vertical-align work*/
+	vertical-align: middle;
+	position: relative;
+	padding: 25px;
+}
+
+.photo-type-line .photo-info .headline {
+	font-size: 20px;
+}
+
+.photo-type-line .photo-info .line {
+	height: 1px;
+	width: 0;
+	margin: 15px auto;
+	background-color: white;
+	-webkit-transition: all 500ms ease-out;
+	-moz-transition: all 500ms ease-out;
+	transition: all 500ms ease-out;
+}
+
+.photo-type-line .photo-hover .mask {
+	background-color: black;
+	filter: alpha(opacity=50);
+	opacity: 0.5;
+	z-index: 0; /*behind everything else*/
+}
+
+.photo-type-line .photo-hover:hover .line {
+	width: 40%; /*final width to which line stretches*/
+}
+
+.photo-type-line .photo-hover:hover {
+	opacity: 1;
+}
+
+.photo-img {
+	background-color: #7a548f;
+	z-index: 0;
+}
