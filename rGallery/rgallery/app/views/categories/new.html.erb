@@ -1,2 +1,30 @@
-<h1>Categories#new</h1>
-<p>Find me in app/views/categories/new.html.erb</p>
+<div class="container" id="form-box">
+	<h1 style="font-family: 'Finger Paint', cursive; text-align: center;">New Category</h1>
+	<h4 style="font-family: 'Finger Paint', cursive;margin-top: 0;text-align: center;"> "lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut"</h4><br>
+
+	<%= form_for @category do |f| %>
+		<!-- check for errors -->
+		<% if @category.errors.any? %>
+			<% @category.errors.full_messages_each do |msg| %>
+			<!-- show errors -->
+			<div class="alert alert-message"><%= msg %></div>
+			<% end %>
+		<% end %>
+
+		<div class="form-group">
+			<%= f.text_field :name, placeholder: "Name", class:"form-control" %>
+		</div>
+		<%= f.submit "Submit", class:"btn btn-dark" %>
+		<%= link_to "Cancel", root_path, class:"btn btn-light" %>
+	<% end %>
+</div>
+
+<style type="text/css">
+	#form-box {
+		background: rgba(255,255,255,.5);
+    	padding: 15%;
+    	padding-top: 8%;
+    	padding-bottom: 8%;
+    	border: 2px solid #666;
+	}
+</style>

@@ -1,2 +1,36 @@
-<h1>Images#index</h1>
-<p>Find me in app/views/images/index.html.erb</p>
+<div id="gallery" uk-lightbox="animation: scale">
+  <h3 id="for-mobile"> All Images </h3>
+
+  <% if @images.exists? %>
+    <% @images.each_slice(4) do |image| %>
+      <div class="row">
+        <% image.each do |i| %>
+          <div class="col-md-3">
+            <div class="photo photo-type-line">
+              <!-- image_url field was not made by us, carrierwave gives it to us! -->
+              <a href="<%= i.image_url %>" class="photo-hover" data-caption="<%= i.image_title %>">
+                <div class="photo-info">
+                  <div class="headline"><%= i.image_title%></div>
+                  <div class="line"></div>
+                  <div class="desc"><%= i.image_description %></div>
+                </div>
+                <div class="mask"></div>
+              </a>
+              <div class="photo-img"><%= image_tag i.image_url(:thumb) %> </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <% else %>
+      <p>We ain't have any image yet...</p>
+  <% end %> 
+</div>
+
+<style type="text/css">
+   @media only screen and (orientation: portrait) {
+    #for-mobile {
+      margin-right: 15%;
+    }
+}
+</style>
